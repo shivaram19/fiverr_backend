@@ -9,12 +9,17 @@ export const login = (req,res) => {
 export const register = async (req,res) => {
   try {
     
-    console.log(req.body)
-    const newUser = new User(req.body);
+    
+    const newUser = new User({
+      username:"test",
+      email:"test",
+      password:"test",
+      country:"test"
+    });
     
 
    const user =  await newUser.save();
-   console.log(user)
+   
     res.status(201).send("working good")
   } catch (error) {
    res.status(500).send(error)

@@ -16,8 +16,8 @@ import authRoute from './routes/auth.route.js'
 
 const app = express();
 dotenv.config();
-app.use(cors());
-app.use(express.json());
+// app.use(cors());
+// app.use(express.json());
 mongoose.set('strictQuery',true)
 app.use("/backend/users",userRoute)
 app.use("/backend/orders",orderRoute)
@@ -30,18 +30,18 @@ app.use("/backend/auth",authRoute)
 
 const connect = async() =>{
   try {
-  
-  await mongoose.connect(process.env.MONGO)
-
-  console.log("connected to mongo db ")
-  } catch(error){
-    console.log(error)
+    await mongoose.connect(process.env.MONGO)
+    } catch(error){
+      console.log(error)
+    }
   }
-}
+  
 
 app.listen(8800,() => {
   connect()
   console.log("backend server  is running")
 })
 
-// rk2Fcrp17BmQF1Gj
+
+
+// WJmO149Dpph5gdu9
