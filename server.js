@@ -15,21 +15,12 @@ import authRoute from './routes/auth.route.js'
 const app = express();
 dotenv.config();
 
-const connect = async() =>{
-  try {
-  
-  await mongoose.connect(process.env.MONGO)
-    console.log("1")
-  console.log("connected to mongo db ")
-  } catch(error){
-    console.log(error)
-  }
-}
+
 
 // middle layer 
 
 
-// app.use(cors());
+app.use(cors({ origin:"http://localhost:5173", credential: true }));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -48,7 +39,16 @@ app.use("/backend/messages",messageRoute)
 app.use("/backend/auth",authRoute)
 
 
-
+const connect = async() =>{
+  try {
+  
+  await mongoose.connect(process.env.MONGO)
+    console.log("1")
+  console.log("connected to mongo db ")
+  } catch(error){
+    console.log(error)
+  }
+}
 
 app.listen(8800,() => {
   connect()
