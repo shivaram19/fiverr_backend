@@ -34,7 +34,7 @@ const userSchema = new Schema({
   },
   isSeller:{
     type:Boolean,
-    deafault:false,
+    deafault:false
   },
 },
 {

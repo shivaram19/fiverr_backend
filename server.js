@@ -19,7 +19,7 @@ const connect = async() =>{
   try {
   
   await mongoose.connect(process.env.MONGO)
-
+    console.log("1")
   console.log("connected to mongo db ")
   } catch(error){
     console.log(error)
@@ -54,14 +54,3 @@ app.listen(8800,() => {
   connect()
   console.log("backend server  is running")
 })
-
-// rk2Fcrp17BmQF1Gj
-
-
-
-// vIZwM2vpBW8oCQ0T
-
-
-
-
-// QyFHAxt3k1ShnGxZ
